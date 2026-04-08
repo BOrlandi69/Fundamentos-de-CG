@@ -217,7 +217,7 @@ frame3 = tk.Frame(root)
 frame4 = tk.Frame(root)
 frame5 = tk.Frame(root)
 frame6 = tk.Frame(root)
-
+frame7 = tk.Frame(root)
 
 def mostra_menu_principal(self):
     self.grid_remove()
@@ -243,6 +243,14 @@ def visualizarobjeto(self):
     self.grid_remove()
     frame6.grid()
 
+def transformarobj(self):
+    self.grid_remove()
+    frame7.grid()
+
+
+    
+
+
 #Frame1 (Menu Principal)
 tk.Label(frame1, text="Menu Principal").grid(row=1,column=1)
 manip_obj_btn = tk.Button(frame1, text="Manipular Objeto", command= lambda: mostra_menu_objeto(frame1)).grid(row=2, column=1)
@@ -255,7 +263,7 @@ frame1.grid()
 #Frame2 (Menu Objeto)
 tk.Label(frame2, text="Manipular Objeto").grid(row=1,column=1)
 voltar_btn = tk.Button(frame2, text="Voltar", command= lambda: mostra_menu_principal(frame2)).grid(row=2,column=1)
-trans_btn = tk.Button(frame2, text="Translação").grid(row=3,column=1)
+trans_btn = tk.Button(frame2, text="Translação", command= lambda: transformarobj(frame2)).grid(row=3,column=1)
 scale_btn = tk.Button(frame2, text="Escala").grid(row=4,column=1)
 rot_x_btn = tk.Button(frame2, text="Rotação em X").grid(row=5,column=1)
 rot_y_btn = tk.Button(frame2, text="Rotação em Y").grid(row=6,column=1)
@@ -287,6 +295,23 @@ viewport_btn = tk.Button(frame5, text="Viewport").grid(row=4,column=1)
 tk.Label(frame6, text="Visualizar Objeto").grid(row=1,column=1)
 voltar_btn = tk.Button(frame6, text="Voltar", command= lambda: mostra_menu_principal(frame6)).grid(row=2,column=1)
 tk.Button(frame6,text="Esse botão terá uma função em algum momento no futuro.... ou não.").grid(row=3,column=1)
+
+#Frame7 (Transformações do Objeto [teste])
+tk.Label(frame7,text="Transformações do Objeto").grid(row=1,column=1)
+voltar_btn = tk.Button(frame7, text="Voltar", command= lambda: mostra_menu_principal(frame7)).grid(row=2,column=1)
+transformação = tk.Entry(frame7).grid(row=3,column=1)
+
+
+# Dropdown options  
+transforms = ["Translação", "Escala", "Rotação em X", "Rotação em Y", "Rotação em Z"]
+from tkinter import ttk
+# Combobox  
+transformoptions = ttk.Combobox(frame7, values=transforms)
+transformoptions.set(transforms[0])
+transformoptions.grid(row=3,column=1)
+
+tk.Entry(frame7).grid(row=4,column=1)
+tk.Button(frame7,text="Aplicar").grid(row=5,column=1) #Função da transformação vai aqui
 
 
 root.mainloop()
