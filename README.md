@@ -1,2 +1,1 @@
 # Fundamentos-de-CG
-cu
